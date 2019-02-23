@@ -1,19 +1,38 @@
 {
-  "name": "video-page",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/simonauner/video-page.git"
-  },
-  "author": "Simon Auner <simonauner@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/simonauner/video-page/issues"
-  },
-  "homepage": "https://github.com/simonauner/video-page#readme"
+    "name": "video-page",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "server": "nodemon index.js",
+        "dev": "parcel watch ./src/client.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/simonauner/video-page.git"
+    },
+    "author": "Simon Auner <simonauner@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/simonauner/video-page/issues"
+    },
+    "homepage": "https://github.com/simonauner/video-page#readme",
+    "dependencies": {
+        "express": "^4.16.4",
+        "react": "^16.8.3",
+        "react-dom": "^16.8.3",
+        "react-router-dom": "^4.3.1"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.3.3",
+        "@babel/preset-env": "^7.3.1",
+        "@babel/preset-react": "^7.0.0",
+        "@babel/register": "^7.0.0",
+        "eslint": "^5.14.1",
+        "eslint-plugin-react": "^7.12.4",
+        "nodemon": "^1.18.10",
+        "parcel-bundler": "^1.11.0",
+        "prettier": "^1.16.4"
+    }
 }
