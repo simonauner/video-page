@@ -6,7 +6,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "server": "nodemon index.js",
-        "dev": "parcel watch ./src/client.js"
+        "dev": "parcel watch ./src/client.js ./src/app.scss"
     },
     "repository": {
         "type": "git",
@@ -20,9 +20,16 @@
     "homepage": "https://github.com/simonauner/video-page#readme",
     "dependencies": {
         "express": "^4.16.4",
+        "node-fetch": "^2.3.0",
+        "prop-types": "^15.7.2",
         "react": "^16.8.3",
         "react-dom": "^16.8.3",
-        "react-router-dom": "^4.3.1"
+        "react-redux": "^6.0.1",
+        "react-router-dom": "^4.3.1",
+        "redux": "^4.0.1",
+        "redux-thunk": "^2.3.0",
+        "request": "^2.88.0",
+        "request-promise-native": "^1.0.7"
     },
     "devDependencies": {
         "@babel/core": "^7.3.3",
@@ -33,6 +40,7 @@
         "eslint-plugin-react": "^7.12.4",
         "nodemon": "^1.18.10",
         "parcel-bundler": "^1.11.0",
-        "prettier": "^1.16.4"
+        "prettier": "^1.16.4",
+        "sass": "^1.17.2"
     }
 }

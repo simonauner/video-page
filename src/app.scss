@@ -1,0 +1,14 @@
+[pam-grid='top-menu'],
+[pam-grid='top-menu'] [pam-Menu-Children] {
+    background-color: #1d262e;
+
+    [pam-menu-link] {
+        padding: 24px 16px;
+        color: #fff;
+    }
+
+    [pam-Menu-Link]:hover {
+        background-color: #fff;
+        color: #1d262e;
+    }
+}

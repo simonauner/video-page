@@ -1,24 +1,17 @@
 import React, { Component } from 'react';
-import { Link, Switch, Route } from 'react-router-dom';
-import { Film } from '../film/film.component';
-import { Home } from '../home/home.component';
+import { Switch, Route } from 'react-router-dom';
+import { TopMenu } from '../top-menu/top-menu.component';
+import routes from '../../routes';
 
 export class App extends Component {
     render() {
         return (
             <div>
-                <div>Hello world!</div>
-                <ul>
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/film">Film</Link>
-                    </li>
-                </ul>
+                <TopMenu />
                 <Switch>
-                    <Route path="/" exact component={Home} />
-                    <Route path="/film" exact component={Film} />
+                    {routes.map(route => (
+                        <Route key={route.path} {...route} />
+                    ))}
                 </Switch>
             </div>
         );

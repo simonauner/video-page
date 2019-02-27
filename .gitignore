@@ -65,3 +65,6 @@ typings/
 
 # dev build
 dist
+
+# editor settings
+.vscode
