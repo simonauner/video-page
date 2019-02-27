@@ -2,11 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { getFilm } from './film.actions';
+import { fetchFilmBeginAction, fetchFilmSuccessAction } from './film.actions';
 
 class Film extends Component {
     componentDidMount() {
-        this.props.getFilm(this.props.match.params.filmId);
+        this.props.fetchFilmBeginAction();
+        fetch(`/api/content/${this.props.match.params.filmId}`)
+            .then(res => res.json())
+            .then(res => {
+                this.props.fetchFilmSuccessAction(res);
+            });
     }
 
     render() {
@@ -43,12 +48,9 @@ const mapStateToProps = state => {
     };
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-        getFilm: id => {
-            return dispatch(getFilm(id));
-        },
-    };
+const mapDispatchToProps = {
+    fetchFilmBeginAction: fetchFilmBeginAction,
+    fetchFilmSuccessAction: fetchFilmSuccessAction,
 };
 
 export default connect(
