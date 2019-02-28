@@ -12,7 +12,7 @@ router.get('/', function(req, res) {
 
 router.get('/content/:contentId', (req, res) => {
     getContent(req.params.contentId).then(function(response) {
-        res.json(JSON.parse(response));
+        res.json(response);
     });
 });
 // Export API routes
