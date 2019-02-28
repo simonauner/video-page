@@ -2,23 +2,44 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { fetchFilmBeginAction, fetchFilmSuccessAction } from './film.actions';
+import {
+    fetchFilmBeginAction,
+    fetchFilmSuccessAction,
+    fetchFilmFailureAction,
+} from './film.actions';
 
 class Film extends Component {
     componentDidMount() {
         this.props.fetchFilmBeginAction();
         fetch(`/api/content/${this.props.match.params.filmId}`)
-            .then(res => res.json())
             .then(res => {
-                this.props.fetchFilmSuccessAction(res);
+                if (res.ok) {
+                    return res.json();
+                }
+                throw new Error('fetch fail');
+            })
+            .then(res => {
+                return this.props.fetchFilmSuccessAction(res);
+            })
+            .catch(error => {
+                this.props.fetchFilmFailureAction(error);
             });
     }
 
     render() {
         const back = <Link to="/films">Back to all films</Link>;
-        const { loading, film } = this.props;
+        const { loading, film, error } = this.props;
         if (loading) {
             return <div>Loading...</div>;
+        }
+
+        if (error) {
+            return (
+                <div>
+                    {back}
+                    <div>Failed to fetch film.</div>
+                </div>
+            );
         }
 
         if (!film || !film.title) {
@@ -45,12 +66,14 @@ const mapStateToProps = state => {
     return {
         film: state.film.filmData,
         loading: state.film.loading,
+        error: state.film.error,
     };
 };
 
 const mapDispatchToProps = {
     fetchFilmBeginAction: fetchFilmBeginAction,
     fetchFilmSuccessAction: fetchFilmSuccessAction,
+    fetchFilmFailureAction: fetchFilmFailureAction,
 };
 
 export default connect(
