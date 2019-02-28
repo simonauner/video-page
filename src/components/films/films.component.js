@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 
 export default class Films extends Component {
     render() {
-        const films = ['i-feel-pretty-2018', 'ant-man-and-the-wasp-2018'];
+        const films = [
+            'i-feel-pretty-2018',
+            'ant-man-and-the-wasp-2018',
+            'karlek-over-haven-2017',
+        ];
         return (
             <div>
                 <ul>
@@ -11,7 +15,9 @@ export default class Films extends Component {
                         const route = `films/${film}`;
                         return (
                             <li key={film}>
-                                <Link to={route}>{film}</Link>
+                                <Link pam-link="" to={route}>
+                                    {film}
+                                </Link>
                             </li>
                         );
                     })}

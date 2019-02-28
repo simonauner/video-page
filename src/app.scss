@@ -12,3 +12,22 @@
         color: #1d262e;
     }
 }
+
+[film-container] {
+    padding: 8px;
+
+    [content] {
+        padding: 16px;
+        max-width: 500px;
+    }
+
+    [content-grid] {
+        justify-content: center;
+    }
+
+    [pam-typography='headline'],
+    [imdb],
+    [people-and-country] {
+        padding: 8px 0;
+    }
+}
