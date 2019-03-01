@@ -133,7 +133,10 @@ class Film extends Component {
         }
 
         if (loading) {
-            return r(<div>Loading...</div>);
+            const styles = {
+                margin: '24px 50%',
+            };
+            return r(<div style={styles} pam-loader="circle" />);
         }
 
         if (error) {
