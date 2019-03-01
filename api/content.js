@@ -1,6 +1,9 @@
 import request from 'request-promise-native';
+import { Cache } from './cache';
 
-export const getContent = function(contentId) {
+const cache = new Cache(60 * 5); // 5 minutes cache. Totally arbitrary!
+
+const makeRequest = function(contentId) {
     let returnObj;
     const apiKey = '9a13a00bbccc51b86bef4554b33a8af1';
 
@@ -52,4 +55,10 @@ export const getContent = function(contentId) {
                     console.log(err);
                 });
         });
+};
+
+export const getContent = function(contentId) {
+    return cache.get(`getContentById_${contentId}`, () => {
+        return makeRequest(contentId);
+    });
 };
