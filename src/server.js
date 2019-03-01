@@ -1,11 +1,16 @@
 // Server
 import express from 'express';
 import path from 'path';
+import compression from 'compression';
 
 // Routes
 import apiRoutes from '../api';
 
 const app = express();
+
+app.disable('x-powered-by');
+
+app.use(compression());
 
 app.use(express.static(path.resolve(__dirname, '../dist')));
 
