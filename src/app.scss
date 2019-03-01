@@ -1,5 +1,5 @@
-[pam-grid='top-menu'],
-[pam-grid='top-menu'] [pam-Menu-Children] {
+[dark-container],
+[dark-container] [pam-Menu-Children] {
     background-color: #1d262e;
 
     [pam-menu-link] {
@@ -22,6 +22,7 @@
     }
 
     [content-grid] {
+        margin-top: 48px;
         justify-content: center;
     }
 
@@ -29,5 +30,29 @@
     [imdb],
     [people-and-country] {
         padding: 8px 0;
+    }
+}
+
+[footer] {
+    padding: 24px 48px;
+    margin-top: 48px;
+
+    a {
+        color: #8a909a;
+        font-size: 14px;
+    }
+
+    [pam-typography='subheading'] {
+        color: white;
+        text-transform: uppercase;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-inline-start: 0;
+
+        li {
+            padding: 8px 0;
+        }
     }
 }

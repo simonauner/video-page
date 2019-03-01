@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export class TopMenu extends Component {
     render() {
         return (
-            <div pam-grid="top-menu">
+            <div pam-grid="" dark-container="">
                 <div pam-unit="4-5">
                     <div pam-menu="">
                         <ul pam-menu-list="">

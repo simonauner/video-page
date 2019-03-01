@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { TopMenu } from '../top-menu/top-menu.component';
+import { Footer } from '../footer/footer.component';
 import routes from '../../routes';
 
 export class App extends Component {
@@ -13,6 +14,7 @@ export class App extends Component {
                         <Route key={route.path} {...route} />
                     ))}
                 </Switch>
+                <Footer />
             </div>
         );
     }
