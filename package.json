@@ -9,6 +9,10 @@
         "dev": "parcel watch ./src/client.js ./src/app.scss",
         "build": "parcel build ./src/client.js ./src/app.scss"
     },
+    "alias": {
+        "react": "preact-compat",
+        "react-dom": "preact-compat"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/simonauner/video-page.git"
@@ -23,9 +27,11 @@
         "compression": "^1.7.3",
         "express": "^4.16.4",
         "node-cache": "^4.2.0",
+        "preact": "^8.4.2",
+        "preact-compat": "^3.18.4",
+        "preact-redux": "^2.0.3",
         "react": "^16.8.3",
         "react-dom": "^16.8.3",
-        "react-redux": "^6.0.1",
         "react-router-dom": "^4.3.1",
         "redux": "^4.0.1",
         "request": "^2.88.0",

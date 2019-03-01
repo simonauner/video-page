@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // Redux
-import { Provider as ReduxProvider } from 'react-redux';
+import { Provider as ReduxProvider } from 'preact-redux';
 import createStore from './store';
 
 // Router
@@ -15,7 +15,7 @@ import { App } from './components/app/app.component';
 const store = createStore({});
 
 const app = document.getElementById('app');
-ReactDOM.hydrate(
+ReactDOM.render(
     <ReduxProvider store={store}>
         <BrowserRouter>
             <App />
