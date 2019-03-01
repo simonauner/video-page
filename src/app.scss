@@ -56,3 +56,26 @@
         }
     }
 }
+
+[trailer] {
+    [placeholder] {
+        color: #eee;
+
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center top;
+        cursor: pointer;
+        display: flex;
+
+        &:hover {
+            color: #fff;
+        }
+
+        svg {
+            width: 200px;
+            display: block;
+            margin: auto;
+        }
+    }
+}

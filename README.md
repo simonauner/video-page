@@ -72,3 +72,7 @@ Serving it gzipped is 29.8 KB, so around 50% bundle size saved!
 
 -   Rate limiting on the Movie DB API
 -   Sending cache headers to the client
+
+## Licenses
+
+-   Icon font is from https://fontawesome.com/ as is used with the [Creative Commons Attribution 4.0 International license](https://fontawesome.com/license).
