@@ -4,11 +4,12 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "jest",
+        "build": "parcel build ./src/client.js ./src/app.scss",
+        "coverage": "jest --config=coverage.conf.js",
         "dev": "parcel watch ./src/client.js ./src/app.scss",
         "dev:server": "nodemon index.js",
         "start": "node index.js",
-        "build": "parcel build ./src/client.js ./src/app.scss"
+        "test": "jest"
     },
     "babel": {
         "presets": [
