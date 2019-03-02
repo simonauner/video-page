@@ -1,12 +1,21 @@
 // Server
 import express from 'express';
-import path from 'path';
 import compression from 'compression';
 
+// utils
+import path from 'path';
+
 // Routes
-import apiRoutes from '../api';
+import apiRoutes from './api';
 
 const app = express();
+let server;
+export function startServer(callback) {
+    server = app.listen(8080, callback);
+}
+export function stopServer(callback) {
+    server.close(callback);
+}
 
 app.disable('x-powered-by');
 
@@ -20,8 +29,6 @@ app.get('/*', (req, res) => {
     res.writeHead(200, { 'Content-type': 'text/html' });
     res.end(html());
 });
-
-app.listen(8080);
 
 function html() {
     return `

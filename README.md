@@ -2,7 +2,7 @@
 
 ## About
 
-This is a SSR React app that uses express as the server application. It uses parcel to bundle the frontend code. Is uses [PAM CSS](https://mrgreentech.github.io/pam/) to leverage [AMCSS](https://amcss.github.io/) principles about CSS scalable and maintainable styling.
+This is a ~~React~~ Preact app that uses express as the server application. It uses parcel to bundle the frontend code. Is uses [PAM CSS](https://mrgreentech.github.io/pam/) to leverage [AMCSS](https://amcss.github.io/) principles about CSS scalable and maintainable styling. The server also hosts an API.
 
 ## Getting started
 
@@ -19,6 +19,10 @@ Open up two terminals, in one you run the frontend watch function with parcel, i
 
 1. `npm run build`
 2. `npm start`
+
+## Tests
+
+1. `npm test`
 
 ## API benchmark
 
@@ -40,7 +44,9 @@ Average: 0.21 (with cold cache)
 
 ## Using preact
 
-With react:
+Using react is cool, but for such a small app I wanted to see if it would be possible to switch to Preact for a smaller JS footprint.
+
+Bundle size with React:
 
 ```
 > parcel build ./src/client.js ./src/app.scss
@@ -53,7 +59,7 @@ dist/app.css           605 B    2.21s
 
 Serving it gzipped takes it down to 60.6 KB.
 
-Switching to preact and preact-redux.
+Switching to preact and preact-redux:
 
 ```
 > parcel build ./src/client.js ./src/app.scss
@@ -72,7 +78,8 @@ Serving it gzipped is 29.8 KB, so around 50% bundle size saved!
 
 -   Rate limiting on the Movie DB API
 -   Sending cache headers to the client
+-   Testing in additional browsers. Only Safari and Chrome OSX is tested.
 
 ## Licenses
 
--   Icon font is from https://fontawesome.com/ as is used with the [Creative Commons Attribution 4.0 International license](https://fontawesome.com/license).
+-   Icon font is from https://fontawesome.com/ and is used with the [Creative Commons Attribution 4.0 International license](https://fontawesome.com/license).

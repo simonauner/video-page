@@ -1,8 +1,8 @@
-import NodeCache from 'node-cache';
+import nodeCache from 'node-cache';
 
 export class Cache {
     constructor(ttlSeconds = 30) {
-        this.cache = new NodeCache({
+        this.cache = new nodeCache({
             stdTTL: ttlSeconds,
             checkPeriod: ttlSeconds * 0.1,
         });

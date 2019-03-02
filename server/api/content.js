@@ -18,6 +18,9 @@ const makeRequest = function(contentId) {
 
             return returnObj;
         })
+        .catch(err => {
+            throw err;
+        })
         .then(res => {
             const imdbId = res.content.imdb.id;
             return request(
@@ -52,7 +55,7 @@ const makeRequest = function(contentId) {
                     return returnObj;
                 })
                 .catch(err => {
-                    console.log(err);
+                    throw err;
                 });
         });
 };
