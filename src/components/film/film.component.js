@@ -5,7 +5,7 @@ import {
     fetchFilmBeginAction,
     fetchFilmSuccessAction,
     fetchFilmFailureAction,
-} from './film.actions';
+} from '../../services/film/film.actions';
 
 import Trailer from '../trailer/trailer.component';
 
@@ -128,6 +128,9 @@ class Film extends Component {
                 Back to all films
             </Link>
         );
+        const styles = {
+            margin: '24px 50%',
+        };
         const { loading, error } = this.props;
 
         function r(content) {
@@ -140,14 +143,11 @@ class Film extends Component {
         }
 
         if (loading) {
-            const styles = {
-                margin: '24px 50%',
-            };
             return r(<div style={styles} pam-loader="circle" />);
         }
 
         if (error) {
-            return r(<div>Failed to fetch film.</div>);
+            return r(<div style={styles}>Failed to fetch film.</div>);
         }
 
         return r(this.formatFilmContent());

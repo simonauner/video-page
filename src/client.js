@@ -1,6 +1,6 @@
 // React
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'preact-compat';
+import ReactDOM from 'preact-compat';
 
 // Redux
 import { Provider as ReduxProvider } from 'preact-redux';

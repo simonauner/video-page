@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'preact-compat';
 
 export class Home extends Component {
     render() {

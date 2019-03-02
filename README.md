@@ -22,7 +22,11 @@ Open up two terminals, in one you run the frontend watch function with parcel, i
 
 ## Tests
 
-1. `npm test`
+`npm test`
+
+To watch:
+
+`npm test -- --watch`
 
 ## API benchmark
 

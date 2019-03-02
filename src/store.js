@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from 'redux';
-import { filmReducer } from './components/film/film.reducer';
+import { filmReducer } from './services/film/film.reducer';
 
 const combinedReducers = combineReducers({ film: filmReducer });
 

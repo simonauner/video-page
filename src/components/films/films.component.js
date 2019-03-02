@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'preact-compat';
 import { Link } from 'react-router-dom';
 
 export default class Films extends Component {
