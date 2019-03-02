@@ -23,7 +23,9 @@ export function startServer(callback) {
                 }:${server.address().port}`
             );
         }
-        callback();
+        if (typeof callback === 'function') {
+            callback();
+        }
     });
 }
 export function stopServer(callback) {
