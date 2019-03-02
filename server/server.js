@@ -8,15 +8,22 @@ import path from 'path';
 // Routes
 import apiRoutes from './api';
 
+const env = process.env.NODE_ENV;
+
 const app = express();
 let server;
 export function startServer(callback) {
     const port = 8080;
     server = app.listen(port, 'localhost', () => {
-        const msg = `Server is now listening at http://${
-            server.address().address
-        }:${server.address().port}`;
-        callback(msg);
+        if (env !== 'test') {
+            // eslint-disable-next-line no-console
+            console.log(
+                `Server is now listening at http://${
+                    server.address().address
+                }:${server.address().port}`
+            );
+        }
+        callback();
     });
 }
 export function stopServer(callback) {

@@ -1,5 +1,3 @@
-import chai from 'chai';
-import chaiHttp from 'chai-http';
 import { startServer, stopServer } from '../../server';
 import nock from 'nock';
 import request from 'request-promise-native';
@@ -10,10 +8,6 @@ import {
     validFindResponse,
     validVideosResponse,
 } from './content.fixtures';
-
-const expect = chai.expect;
-
-chai.use(chaiHttp);
 
 nock.disableNetConnect();
 nock.enableNetConnect('127.0.0.1');
@@ -26,8 +20,8 @@ describe('/content', () => {
         }
         nock.cleanAll();
     });
-    before(done => startServer(done));
-    after(done => stopServer(done));
+    beforeAll(done => startServer(done));
+    afterAll(done => stopServer(done));
 
     describe('error handling', () => {
         it('should return the same status code as external content API', done => {
@@ -39,7 +33,7 @@ describe('/content', () => {
             // act
             request('http://localhost:8080/api/content/fel').catch(err => {
                 // assert
-                expect(err.statusCode).to.equal(404);
+                expect(err.statusCode).toEqual(404);
                 done();
             });
         });
@@ -62,10 +56,8 @@ describe('/content', () => {
             })
                 .then(res => {
                     // assert
-                    expect(res.statusCode).to.equal(200);
-                    expect(JSON.parse(res.body)).to.not.have.property(
-                        'trailer'
-                    );
+                    expect(res.statusCode).toEqual(200);
+                    expect(JSON.parse(res.body)).not.toHaveProperty('trailer');
 
                     done();
                 })
@@ -95,8 +87,8 @@ describe('/content', () => {
                 .then(res => {
                     const body = JSON.parse(res.body);
                     // assert
-                    expect(res.statusCode).to.equal(200);
-                    expect(body).to.not.have.property('trailer');
+                    expect(res.statusCode).toEqual(200);
+                    expect(body).not.toHaveProperty('trailer');
                     done();
                 })
                 .catch(done);
@@ -133,8 +125,8 @@ describe('/content', () => {
                 .then(res => {
                     const body = JSON.parse(res.body);
                     // assert
-                    expect(res.statusCode).to.equal(200);
-                    expect(body).to.not.have.property('trailer');
+                    expect(res.statusCode).toEqual(200);
+                    expect(body).not.toHaveProperty('trailer');
                     done();
                 })
                 .catch(done);
@@ -171,8 +163,8 @@ describe('/content', () => {
                 .then(res => {
                     const body = JSON.parse(res.body);
                     // assert
-                    expect(res.statusCode).to.equal(200);
-                    expect(body).to.not.have.property('trailer');
+                    expect(res.statusCode).toEqual(200);
+                    expect(body).not.toHaveProperty('trailer');
                     done();
                 })
                 .catch(done);
@@ -209,8 +201,8 @@ describe('/content', () => {
                 .then(res => {
                     const body = JSON.parse(res.body);
                     // assert
-                    expect(res.statusCode).to.equal(200);
-                    expect(body).to.have.property('trailer');
+                    expect(res.statusCode).toEqual(200);
+                    expect(body).toHaveProperty('trailer');
                     done();
                 })
                 .catch(done);
@@ -241,8 +233,8 @@ describe('/content', () => {
                 .then(res => {
                     const body = JSON.parse(res.body);
                     // assert
-                    expect(res.statusCode).to.equal(200);
-                    expect(body).to.have.property('trailer');
+                    expect(res.statusCode).toEqual(200);
+                    expect(body).toHaveProperty('trailer');
                     done();
                 })
                 .catch(done);
