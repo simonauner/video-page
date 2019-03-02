@@ -11,7 +11,13 @@ import apiRoutes from './api';
 const app = express();
 let server;
 export function startServer(callback) {
-    server = app.listen(8080, callback);
+    const port = 8080;
+    server = app.listen(port, 'localhost', () => {
+        const msg = `Server is now listening at http://${
+            server.address().address
+        }:${server.address().port}`;
+        callback(msg);
+    });
 }
 export function stopServer(callback) {
     server.close(callback);
