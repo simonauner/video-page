@@ -2,7 +2,7 @@
 
 ## About
 
-This is a ~~React~~ Preact app that uses express as the server application. It uses parcel to bundle the frontend code. Is uses [PAM CSS](https://mrgreentech.github.io/pam/) to leverage [AMCSS](https://amcss.github.io/) principles about CSS scalable and maintainable styling. The server also hosts an API.
+This is a SSR ~~React~~ Preact app served through express. It uses parcel to bundle the frontend code. It uses [PAM CSS](https://mrgreentech.github.io/pam/) to leverage [AMCSS](https://amcss.github.io/) principles about CSS scalable and maintainable styling. The server also hosts an API to cache resources.
 
 ## Getting started
 
@@ -83,6 +83,7 @@ Serving it gzipped is 29.8 KB, so around 50% bundle size saved!
 -   Rate limiting on the Movie DB API
 -   Sending cache headers to the client
 -   Testing in additional browsers. Only Safari and Chrome OSX is tested.
+-   Integration testing through Cypress.io or likewise would probably be useful to verify that the SSR works as intended. Maybe cornercases I haven't thought of?
 
 ## Licenses
 

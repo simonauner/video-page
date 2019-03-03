@@ -12,7 +12,7 @@ import { BrowserRouter } from 'react-router-dom';
 // Components
 import { App } from './components/app/app.component';
 
-const store = createStore({});
+const store = createStore(window.INITIAL_STATE || {});
 
 const app = document.getElementById('app');
 ReactDOM.render(

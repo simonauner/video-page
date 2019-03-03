@@ -11,20 +11,27 @@ import Trailer from '../trailer/trailer.component';
 
 class Film extends Component {
     componentDidMount() {
-        this.props.fetchFilmBeginAction();
-        fetch(`/api/content/${this.props.match.params.filmId}`)
-            .then(res => {
-                if (res.ok) {
-                    return res.json();
-                }
-                throw new Error('fetch fail');
-            })
-            .then(res => {
-                return this.props.fetchFilmSuccessAction(res);
-            })
-            .catch(error => {
-                this.props.fetchFilmFailureAction(error);
-            });
+        // the data could have been bundled by the server, in that case, no
+        // need to fetch it again
+        if (
+            !this.props.film ||
+            this.props.match.params.filmId !== this.props.film.publicPath
+        ) {
+            this.props.fetchFilmBeginAction();
+            fetch(`/api/content/${this.props.match.params.filmId}`)
+                .then(res => {
+                    if (res.ok) {
+                        return res.json();
+                    }
+                    throw new Error('fetch fail');
+                })
+                .then(res => {
+                    return this.props.fetchFilmSuccessAction(res);
+                })
+                .catch(error => {
+                    this.props.fetchFilmFailureAction(error);
+                });
+        }
     }
 
     formatFilmContent() {
