@@ -17,6 +17,10 @@
             "@babel/preset-react"
         ]
     },
+    "alias": {
+        "react": "preact-compat",
+        "react-dom": "preact-compat"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/simonauner/video-page.git"
