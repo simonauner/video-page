@@ -13,7 +13,7 @@ This is a ~~React~~ Preact app that uses express as the server application. It u
 Open up two terminals, in one you run the frontend watch function with parcel, in the other you run the node server.
 
 1. `npm run dev`
-2. `npm run server`
+2. `npm run dev:server`
 
 ## Production build
 
